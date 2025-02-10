@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.mont-thin {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+.mont-bold {
+    font-family: "Montserrat", serif;
+    font-weight: 1000;
+}
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-image: linear-gradient(white, white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: "Bebas neue", serif;
+}
+.margin {
+    width: 100%;
+    height: 100px;
+    margin-top: 20%;
+}
+.insider-margin {
+    margin-top: 20%;
+}
+.nav-bar {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.3s ease-in-out;
+    position: sticky;
+    top: 0;
+}
+
+
+.nav-bar.sticking {
+    background-color: white;
+    box-shadow: black 0px 0px 10px;
+    height: 50px; 
+}
+.nav-bar.sticking > .nav-options {
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+
+}
+
+.nav-bar.sticking > .nav-options > .option-texts {
+    font-size: 25px;
+    height: 300px;
+    z-index: 10;
+    margin-top: 20%;
+
+}
+
+.nav-bar.sticking > .nav-options > .option-texts:hover {
+    transform: rotate(0deg);
+    border-top: solid black 1px;
+    font-size: 30px;
+}
+
+
+.nav-bar.sticking > #logoImg {
+    opacity: 0;
+    position: absolute;
+}
+
+#logoImg {
+    width: 400px;
+    aspect-ratio: 1;
+}
+
+.nav-options {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.option-texts {
+    color: black;
+    font-size: 40px;
+    cursor: pointer;
+    font-family: "Bebas Neue", serif;
+    transition: 0.3s ease;
+}
+
+.option-texts:hover {
+    transform: rotate(10deg);
+    font-size: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+  
+}
+
+.section {
+    width: 100%;
+    height: 600px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#quote {
+    font-family: "Montserrat", serif;
+    font-size: 40px;
+    animation-timeline: view();
+    animation-name: blurAnim linear both;
+}
+
+@keyframes blurAnim {
+    0% {
+        rotate: 10deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+.about-section {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.about-wrapper {
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px;
+    border-style: solid;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+
+}
+
+
+.about-wrapper > p {
+
+    margin: 20%;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.about-img-wrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    gap: 5%;
+    align-items: center;
+    flex-direction: column;
+    
+}
+#profileImg {
+    width: 300px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
