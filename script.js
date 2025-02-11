@@ -1,41 +1,28 @@
-// window.onload = () => {
-    
-//     const navbar = document.querySelector(".nav-bar");
-//     const scrollWatcher = document.createElement("div");
-
-//     scrollWatcher.setAttribute("data-scroll-watcher", "")
-//     navbar.before(scrollWatcher);
-
-    
-
-//     const navObserver = new IntersectionObserver((entries) => {
-        
-//         navbar.classList.toggle("sticking", !entries[0].isIntersecting, );
-        
-
-
-//     }, {rootMargin: "100px 0px 0px 0px"});
-
-//     navObserver.observe(scrollWatcher);
-// }
-
-
-
 window.onload = () => {
     const navbar = document.querySelector(".nav-bar");
     const scrollWatcher = document.createElement("div");
     const body = document.body;
     const navLinks = document.querySelectorAll(".nav-bar a");
+    const sections = document.querySelectorAll(".section"); 
 
-    // Initially disable scrolling
+    if (sections.length === 0) {
+        console.error("No sections found on the page.");
+        return;
+    }
+
     body.style.overflow = "hidden";
 
+        
+        sections.forEach(section => {
+            section.classList.add("blurred");
+            console.log(`Added 'blurred' class to section:`, section);
+        });
+
     scrollWatcher.setAttribute("data-scroll-watcher", "");
+
     navbar.before(scrollWatcher);
+    let lastState = true; 
 
-    let lastState = true; // Track last intersection state to prevent flickering
-
-    // Function to handle when we should toggle scrolling and navbar behavior
     const handleScrollBehavior = (isIntersecting) => {
         navbar.classList.toggle("sticking", !isIntersecting);
         
@@ -52,7 +39,7 @@ window.onload = () => {
         lastState = isIntersecting;
     };
 
-    // Observe intersection changes and toggle class & scrolling
+    // OBSERVER
     const navObserver = new IntersectionObserver((entries) => {
         const isIntersecting = entries[0].isIntersecting;
         handleScrollBehavior(isIntersecting);
@@ -60,7 +47,6 @@ window.onload = () => {
 
     navObserver.observe(scrollWatcher);
 
-    
     navLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();  // Prevent default behavior
@@ -69,8 +55,21 @@ window.onload = () => {
         });
     });
 
-    
 
+    // BLUR EFFECTS
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove("blurred"); 
+                console.log(`Unblurred section:`, entry.target);
+            } else {
+                entry.target.classList.add("blurred"); 
+                console.log(`Blurred section:`, entry.target);
+            }
+        });
+    }, { threshold: 0.4 }); 
+
+    sections.forEach(section => sectionObserver.observe(section));
 
 };
 
