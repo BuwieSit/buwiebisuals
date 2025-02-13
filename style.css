@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -11,12 +11,19 @@
     filter: blur(4px);
     transition: filter 0.5s ease-in-out;
 }
+
+.fade-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 1), #000000);
+}
+
+
 .mont-thin {
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
 }
+
 .mont-bold {
     font-family: "Montserrat", serif;
     font-weight: 1000;
@@ -178,7 +185,7 @@ a {
 }
 
 .about-img-wrapper {
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content:center;
@@ -205,7 +212,11 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+}
 
+.contact-cont > a {
+    text-align: center;
+    color: white;
 }
 
 .contact-cont > a > img {
@@ -215,6 +226,9 @@ a {
 
 .contact-title {
     font-size: 50px;
+    background: -webkit-linear-gradient(#854836, #854836, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .contact-info {
@@ -231,7 +245,7 @@ a {
 }
 
 .foot {
-    background-color: black;
+    background-color: #000000;
     width: 100%;
     height: 100px;
     top: 100%;
@@ -259,6 +273,7 @@ a {
     justify-content: center;
     gap: 10px;
 }
+
 .footer-img {
     width: 40px;
     aspect-ratio: 1;

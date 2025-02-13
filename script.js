@@ -4,6 +4,7 @@ window.onload = () => {
     const body = document.body;
     const navLinks = document.querySelectorAll(".nav-bar a");
     const sections = document.querySelectorAll(".section"); 
+    const contactSect= document.querySelectorAll(".contact-section");
 
     if (sections.length === 0) {
         console.error("No sections found on the page.");
@@ -61,15 +62,30 @@ window.onload = () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.remove("blurred"); 
-                console.log(`Unblurred section:`, entry.target);
+                
+
             } else {
                 entry.target.classList.add("blurred"); 
-                console.log(`Blurred section:`, entry.target);
+
             }
         });
     }, { threshold: 0.4 }); 
 
     sections.forEach(section => sectionObserver.observe(section));
 
-};
+    // const contactObserver = new IntersectionObserver((entries) => {
+    //     entries.forEach(contactSect => {
+    //         if (contactSect.isIntersecting) {
+    //             contactSect.classList.add("fade-bg");
+    //             console.log(contactSect.classList);
+    //         }   
+    //         else {
+    //             contactSect.classList.remove("fade-bg");
+    //             console.log(contactSect.classList);
+    //         }
+    //     })
+    // }, { threshold: 0.4 });
 
+    // contactSect.forEach(contactSect => contactObserver.observe(contactSect));
+
+};
