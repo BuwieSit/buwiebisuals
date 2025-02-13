@@ -31,9 +31,11 @@ window.onload = () => {
         if (isIntersecting && !lastState) {
  
             body.style.overflow = "hidden";
-            window.scrollTo(0, 0); // Redirect to the top immediately
+            window.scrollTo(0, 0);
+            navbar.style.backgroundImage = "linear-gradient(#FFB22C, #F7F7F7)";
         } else if (!isIntersecting && lastState) {
-            body.style.overflow = "auto"; // Allow scrolling
+            body.style.overflow = "auto";
+            navbar.style.backgroundImage = "none";
         }
 
         // Update last state for the next scroll event

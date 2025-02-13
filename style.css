@@ -66,6 +66,8 @@ h2 {
     position: sticky;
     top: 0;
     z-index: 99;
+    background-image: linear-gradient(#FFB22C, #F7F7F7); 
+    
 }
 
 
